@@ -1,5 +1,5 @@
 import {BuilderContext, BuilderOutput, createBuilder} from '@angular-devkit/architect';
-import {basename, dirname, join, normalize} from '@angular-devkit/core';
+import {JsonObject, basename, dirname, join, normalize} from '@angular-devkit/core';
 import {promises as fs} from 'fs';
 import {readFileIfExists} from './fileUtils';
 import {findLexClosestIndex} from './lexUtils';
@@ -96,13 +96,19 @@ async function extractI18nMergeBuilder(options: Options, context: BuilderContext
     const sourcePath = join(normalize(outputPath), options.sourceFile ?? 'messages.xlf');
     const translationSourceFileOriginal = fromXlf(await readFileIfExists(sourcePath));
 
-    const extractI18nRun = await context.scheduleBuilder(options.builderI18n ?? '@angular-devkit/build-angular:extract-i18n', {
-        browserTarget: options.browserTarget,
+    const builderOptions: JsonObject = {
         outputPath: dirname(sourcePath),
         outFile: basename(sourcePath),
         format,
         progress: false
-    }, {target: context.target, logger: context.logger.createChild('extract-i18n')});
+    };
+    if (options.buildTarget) {
+        builderOptions.buildTarget = options.buildTarget;
+    }  else if (options.browserTarget) {
+        builderOptions.browserTarget = options.browserTarget;
+    }
+    const extractI18nRun = await context.scheduleBuilder(options.builderI18n ?? '@angular-devkit/build-angular:extract-i18n',
+        builderOptions, {target: context.target, logger: context.logger.createChild('extract-i18n')});
     const extractI18nResult = await extractI18nRun.result;
     if (!extractI18nResult.success) {
         return {success: false, error: `"extract-i18n" failed: ${extractI18nResult.error}`};

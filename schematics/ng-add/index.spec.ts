@@ -50,7 +50,7 @@ describe('ngAdd', () => {
         expect(norm(tree.readContent('/angular.json'))).toContain(norm('"extract-i18n": {\n' +
             '          "builder": "ng-extract-i18n-merge:ng-extract-i18n-merge",\n' +
             '          "options": {\n' +
-            '            "browserTarget": "bar:build",\n' +
+            '            "buildTarget": "bar:build",\n' +
             '            "format": "xlf2",\n' +
             '            "outputPath": "src/locales",\n' +
             '            "targetFiles": []\n' +
@@ -76,7 +76,7 @@ describe('ngAdd', () => {
         expect(norm(tree.readContent('/angular.json'))).toContain(norm('"extract-i18n": {\n' +
             '          "builder": "ng-extract-i18n-merge:ng-extract-i18n-merge",\n' +
             '          "options": {\n' +
-            '            "browserTarget": "bar:build",\n' +
+            '            "buildTarget": "bar:build",\n' +
             '            "format": "xlf",\n' +
             '            "outputPath": "src/other-path",\n' +
             '            "targetFiles": [ "messages.fr.xlf" ]\n' +
@@ -109,7 +109,7 @@ describe('ngAdd', () => {
         expect(norm(tree.readContent('/angular.json'))).toContain(norm('"extract-i18n": {\n' +
             '          "builder": "ng-extract-i18n-merge:ng-extract-i18n-merge",\n' +
             '          "options": {\n' +
-            '            "browserTarget": "bar:build",\n' +
+            '            "buildTarget": "bar:build",\n' +
             '            "format": "xlf",\n' +
             '            "outputPath": "src/some-path",\n' +
             '            "targetFiles": [ "../other-path/messages.fr.xlf" ],\n' +
@@ -135,7 +135,7 @@ describe('ngAdd', () => {
         expect(norm(tree.readContent('/angular.json'))).toContain(norm('"extract-i18n": {\n' +
             '          "builder": "ng-extract-i18n-merge:ng-extract-i18n-merge",\n' +
             '          "options": {\n' +
-            '            "browserTarget": "bar:build",\n' +
+            '            "buildTarget": "bar:build",\n' +
             '            "format": "xlf",\n' +
             '            "outputPath": "src/other-path",\n' +
             '            "targetFiles": [ "messages.fr.xlf" ]\n' +
@@ -157,7 +157,7 @@ describe('ngAdd', () => {
         expect(norm(tree.readContent('/angular.json'))).toContain(norm('"extract-i18n": {\n' +
             '          "builder": "ng-extract-i18n-merge:ng-extract-i18n-merge",\n' +
             '          "options": {\n' +
-            '            "browserTarget": "bar:build",\n' +
+            '            "buildTarget": "bar:build",\n' +
             '            "format": "xlf",\n' +
             '            "outputPath": "src/other-path",\n' +
             '            "targetFiles": [ "messages.fr.xlf" ]\n' +
@@ -185,7 +185,7 @@ describe('ngAdd', () => {
         expect(norm(tree.readContent('/angular.json'))).toContain(norm('"extract-i18n": {\n' +
             '          "builder": "ng-extract-i18n-merge:ng-extract-i18n-merge",\n' +
             '          "options": {\n' +
-            '            "browserTarget": "bar:build",\n' +
+            '            "buildTarget": "bar:build",\n' +
             '            "format": "xlf",\n' +
             '            "outputPath": "src/other-path",\n' +
             '            "targetFiles": [ "messages.fr.xlf" ]\n' +
@@ -214,7 +214,7 @@ describe('ngAdd', () => {
         expect(norm(tree.readContent('/angular.json'))).toContain(norm('"extract-i18n": {\n' +
             '          "builder": "ng-extract-i18n-merge:ng-extract-i18n-merge",\n' +
             '          "options": {\n' +
-            '            "browserTarget": "bar:build",\n' +
+            '            "buildTarget": "bar:build",\n' +
             '            "format": "xlf2",\n' +
             '            "outputPath": "src/other-path",\n' +
             '            "targetFiles": [ "messages.fr.xlf" ]\n' +

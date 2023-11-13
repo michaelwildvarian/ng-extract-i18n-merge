@@ -32,7 +32,7 @@ export default function (): Rule {
                     i18nTarget.builder = 'ng-extract-i18n-merge:ng-extract-i18n-merge';
                     i18nTarget.options = {
                         ...i18nMergeTarget.options,
-                        browserTarget: i18nTarget.options?.browserTarget ?? `${projectName}:build`
+                        browserTarget: i18nMergeTarget.options?.buildTarget ?? i18nTarget.options?.browserTarget ?? `${projectName}:build`
                     }
                     project.targets.delete('extract-i18n'); // 'project.targets.set' not working!?
                     project.targets.add({name: 'extract-i18n', ...i18nTarget});
